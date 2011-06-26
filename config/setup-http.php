@@ -17,7 +17,7 @@
 	define('URL_BASE', dirname($_SERVER['SCRIPT_NAME']));
 	define('URL_SELF', $_SERVER['PHP_SELF']);
 	define('URL_SCRIPT', $_SERVER['SCRIPT_NAME']);
-	define('URL_INFO', $_SERVER['PATH_INFO']);
+	define('URL_INFO', (isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : ''));
 	define('URL_FULL', $_SERVER['REQUEST_URI']);
 	define('URL_QUERY', $_SERVER['QUERY_STRING']);
 ?>
