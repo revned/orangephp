@@ -1,0 +1,98 @@
+/*
+ * standard elements
+ */
+body, th, td, input, select, textarea { font-size: 10px; font-family: Helvetica; }
+.nodisplay { display: none; }
+a { color: #00c; }
+h1 { font-size: 16px; }
+h2 { font-size: 14px; }
+h3 { font-size: 12px; }
+pre { font-size: 8px; }
+/*
+ * tables
+ */
+table { border-collapse: collapse; }
+table td, table th { padding: 5px; }
+table.form { border: 1px solid #ddd; }
+table.form th { text-align: left; }
+table.form tr:nth-child(odd), table.log tr:nth-child(odd) { background: rgb(240,240,255); }
+table.form tr:nth-child(even), table.log tr:nth-child(even) { background: white; }
+table.list {
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+table.list th, table.list td {
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+table.list tbody tr:nth-child(odd) { background: rgb(240,240,255); }
+table.list tbody tr:nth-child(even) { background: white; }
+/*
+ * forms and validation
+ */
+input[type="text"], input[type="password"], input[type="date"], input[type="number"], input[type="email"], textarea { border: 1px solid #aaa; }
+select { border: 1px solid #aaa; padding: 0; background: none; }
+input[type="submit"], input[type="button"] { border: 1px solid #888; border-radius: 5px; background: none; }
+input[type="submit"]:active, input[type="button"]:active { background: #eee; }
+input:invalid { background: #fcc; }
+/*
+ * secions
+ */
+.float { float: left; margin-right: 1em; }
+.clear { clear: both; margin: 0; padding: 0; }
+div.float > h2:first-child { margin-top: 0; }
+div.float { margin-bottom: 1em; }
+/*
+ * dialogs
+ */
+div.error { border: 1px solid #ccc; background: #fcc; padding: 1em; }
+div.error span.error { font-weight: bold; }
+/*
+ * buttons
+ */
+input[type="button"].red, input[type="submit"].red,
+input[type="button"].green, input[type="submit"].green {
+	border: none;
+	margin: 0;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left; 2px;
+	padding-right; 2px;
+	border-radius: 2px;
+	color: white;
+	font-size: 10px;
+}
+input[type="button"].red, input[type="submit"].red {
+	background: red;
+}
+input[type="button"].green, input[type="submit"].green {
+	background: green;
+}
+input[type="button"].red:active, input[type="submit"].red:active,
+input[type="button"].green:active, input[type="submit"].green:active {
+	opacity: .5;
+}
+input[type="button"].ok, input[type="submit"].ok,
+input[type="button"].edit, input[type="submit"].edit,
+input[type="button"].delete, input[type="submit"].delete,
+input[type="button"].download, input[type="submit"].download,
+input[type="button"].handle, input[type="submit"].handle {
+	border: none;
+	width: 12px;
+	height: 12px;
+	margin: 0;
+	padding: 0;
+	border-radius: 2px;
+}
+input[type="button"].ok:active, input[type="submit"].ok:active,
+input[type="button"].edit:active, input[type="submit"].edit:active,
+input[type="button"].delete:active, input[type="submit"].delete:active,
+input[type="button"].download:active, input[type="submit"].download:active,
+input[type="button"].handle:active, input[type="submit"].handle:active {
+	opacity: .5;
+}
+input[type="button"].ok, input[type="submit"].ok { background: url('../images/buttons/ok.png'); }
+input[type="button"].edit, input[type="submit"].edit { background: url('../images/buttons/edit.png'); }
+input[type="button"].delete, input[type="submit"].delete { background: url('../images/buttons/del.png'); }
+input[type="button"].download, input[type="submit"].download { background: url('../images/buttons/dnld.png'); }
+input[type="button"].handle, input[type="submit"].handle { background: url('../images/buttons/handle.png'); }
