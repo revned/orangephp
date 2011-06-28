@@ -6,7 +6,7 @@
 			if(isset($_SERVER['PATH_INFO'])) {
 				$segments = explode('/', $_SERVER['PATH_INFO']);
 				array_shift($segments); // first element will always be empty
-				array_walk($segments, function(&$value, $key) { $value = urldecode($value); }); // remove any url encoding
+				//array_walk($segments, function(&$value, $key) { $value = urldecode($value); }); // remove any url encoding
 				$path = PATH_BASE.'/views'; // all controllers should be located here or sub directory
 				foreach($segments as $segment) {
 					if(empty($this->viewPath)) { // as long as we haven't set controller property...

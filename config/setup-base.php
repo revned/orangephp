@@ -1,5 +1,5 @@
 <?
-	define('PATH_BASE', dirname(__DIR__));
+	define('PATH_BASE', dirname(dirname(__FILE__)));
 	define('PATH_SCRIPT', $_SERVER['SCRIPT_FILENAME']);
 	define('PATH_LIBRARY', PATH_BASE.'/libraries');
 	define('PATH_REPOSITORY', PATH_BASE.'/repository');

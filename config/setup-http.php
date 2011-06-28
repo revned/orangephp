@@ -1,6 +1,6 @@
 <?
 	// load base setup
-	require_once(__DIR__.'/setup-base.php');
+	require_once(dirname(__FILE__).'/setup-base.php');
 	/*
 		setup defaults that are dependent on the web server
 		
