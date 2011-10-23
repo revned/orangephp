@@ -1,4 +1,4 @@
-<?php
+<?
 	function empty_r(Array $x) {
 		if(empty($x)) return true;
 		foreach($x as $y)
@@ -57,5 +57,21 @@
 		$s .= "</table>";
 		return $s;
 	}
-	
+	function scandir_r($path) {
+		$scan = scandir($path);
+		array_shift($scan);
+		array_shift($scan);
+		$tree = array();
+		foreach($scan as $s) {
+			$newPath = $path.'/'.$s;
+			if(is_dir($newPath)) {
+				echo $newPath."\n";
+				$tree[basename($newPath)] = scandir_r($newPath);
+			} else {
+				$tree[] = basename($newPath);
+				echo $newPath."\n";
+			}
+		}
+		return $tree;
+	}
 ?>

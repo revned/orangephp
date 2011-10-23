@@ -1,7 +1,6 @@
 <?
 	if(!defined('PGCONNECT')) define('PGCONNECT', "dbname=ipb user=www");
 	if(!defined('PGDATETIME')) define('PGDATETIME', "Y-m-d G:i:s");
-	require_once(__DIR__.'/Log.php');
 	function augmentQuery(&$query, &$args, $queryPiece, $newArg) {
 		$argCount = count($args) + 1;
 		$queryPiece = str_replace('$#', '$'.$argCount, $queryPiece);

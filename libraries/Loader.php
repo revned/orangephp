@@ -1,4 +1,4 @@
-<?php
+<?
 	class Load {
 		static function view($name, $data=array(), $return=false) {
 			$path = PATH_BASE."/views/".$name.".php";
