@@ -1,6 +1,5 @@
 <?
-	if(!defined('PGCONNECT')) define('PGCONNECT', "dbname=ipb user=www");
-	if(!defined('PGDATETIME')) define('PGDATETIME', "Y-m-d G:i:s");
+	define('PGDATETIME', "Y-m-d G:i:s");
 	class DB {
 		var $connection;
 		var $result;
@@ -41,7 +40,7 @@
 			return $this->p($query)->xa($args);
 		}
 		function f() { // fetch
-			if(!$this->result) trigger_error('There was a problem with the query', E_USER_ERROR);
+			if(!$this->result) throw new Exception('There was a problem with the query');
 			return pg_fetch_object($this->result);
 		}
 		function fs() { // fetch, ensuring a single result
@@ -49,7 +48,7 @@
 			return $this->f();
 		}
 		function fa() { // get all rows and columns of the result as an array
-			if(!$this->result) trigger_error('There was a problem with the query', E_USER_ERROR);
+			if(!$this->result) throw new Exception('There was a problem with the query');
 			return pg_fetch_all($this->result);
 		}
 		function r() { return pg_num_rows($this->result); }

@@ -1,6 +1,6 @@
 <?
-	Load::library('DTDateInterval');
-	class DTDateTime extends DateTime {
+	Load::library('ODateInterval');
+	class ODateTime extends DateTime {
 		public function __construct($dateTime=null, $timezone=null) {
 			if(!$dateTime) throw new Exception('Date/time is null');
 			parent::__construct($dateTime);

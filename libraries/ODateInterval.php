@@ -1,5 +1,5 @@
 <?
-	class DTDateInterval {
+	class ODateInterval {
 		public $s;
 		public $i;
 		public $h;
