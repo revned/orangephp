@@ -1,12 +1,6 @@
 <?
 	if(!defined('PGCONNECT')) define('PGCONNECT', "dbname=ipb user=www");
 	if(!defined('PGDATETIME')) define('PGDATETIME', "Y-m-d G:i:s");
-	function augmentQuery(&$query, &$args, $queryPiece, $newArg) {
-		$argCount = count($args) + 1;
-		$queryPiece = str_replace('$#', '$'.$argCount, $queryPiece);
-		$query .= $queryPiece;
-		$args[] = $newArg;
-	}
 	class DB {
 		var $connection;
 		var $result;
@@ -17,8 +11,13 @@
 			if($args !== null) { $this->xa($args); }
 		}
 		function p($query=null, $name='') { // prepare
-			l('Prepared query = ['.$query.']', LDEBUG);
+			l('Prepared query = ['.$query.']', LLDEBUG);
 			if($query === null) throw new Exception('Query is null');
+			// Replace the '?' in '$?' with a number
+			for($i=1; ($pos = strpos($query, '$?')) !== false; $i++) {
+				$query = substr_replace($query, $i, $pos+1, 1);
+			}
+			// Prepare query
 			$this->result = pg_prepare($this->connection, $name, $query);
 			if(false === $this->result)	throw new Exception('Could not prepare query');
 			return $this;
@@ -28,7 +27,7 @@
 			return $this->xa($args);
 		}
 		function xa($args=array(), $name='') { // execute array, with args given in an array as first parameter, also allows named query
-			l('Execute query = '.print_r($args, 1), LDEBUG);
+			l('Execute query = '.print_r($args, 1), LLDEBUG);
 			$this->result = pg_execute($this->connection, $name, $args);
 			if(false === $this->result) throw new Exception('Could not execute query');
 			return $this;
@@ -60,10 +59,10 @@
 		function insert($table, $data) {
 			return $this->q(pg_insert($this->connection, $table, $data, PGSQL_DML_STRING));
 		}
-		static function augment(&$query, &$args, $queryPiece, $newArg) {
+		static function augment(&$query, &$args, $queryPiece, $newArg=null) {
 			$queryPiece = str_replace('$#', '$'.(count($args)+1), $queryPiece);
 			$query .= ' '.$queryPiece;
-			$args[] = $newArg;
+			if($newArg !== null) $args[] = $newArg;
 		}
 	}	
 ?>

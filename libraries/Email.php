@@ -1,4 +1,4 @@
-<?php
+<?
 	define( "EMAILSYSTEMSAVER", "wholbrook@ipaperbox.com, kholbrook@ipaperbox.com, gmoen@ipaperbox.com, jsmith@ipaperbox.com" );
 	define( "EMAILREPAIRREQUEST", "wholbrook@ipaperbox.com, jsmith@ipaperbox.com" );
 	define( "EMAILACCTREPORT", "wholbrook@ipaperbox.com" );
